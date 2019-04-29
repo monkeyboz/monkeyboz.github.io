@@ -1,5 +1,9 @@
 body{
   background: #efefef;
+  text-align: center;
+  font-size: 12px;
+  line-height: 20px;
+  color: #545454;
 }
 p{
   padding: 10px;
