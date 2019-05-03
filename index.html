@@ -3,9 +3,91 @@
     <title>Taurean Wooley - Portfolio</title>
     <link href="css/style.css" type="text/css" ref="stylesheet"/>
     <script src="js/main.js" type="text/javascript"></script>
+    <style>
+      body {
+        font-family: arial, sans-serif;
+      }
+
+      h3 {
+        font-family: arial, sans-serif;
+        margin: 0px 0px 10px 0px;
+        font-size: 25px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      }
+
+      .description {
+        font-size: 12px;
+        line-height: 24px;
+        color: #545454;
+      }
+
+      .technologies {
+        border-top: 1px solid rgba(0, 0, 0, 0.3);
+        padding-top: 5px;
+        margin-top: 10px;
+        font-size: 11px;
+        font-weight: bold;
+        color: #aa00ff;
+      }
+    </style>
   </head>
   <body>
     <h1>Taurean Wooley - Portfolio</h1>
     <p>This is a place holder for my portfolio pieces that I have worked on throughout my years of development.</p>
+    <div id="projects">
+    </div>
+    <script>
+         var technology = [
+           "PHP",
+           "CMS",
+           "Wordpress",
+           "javascript",
+           "HTML5",
+           "CodeIgniter",
+           "Symfony 2.0",
+           "Node.js",
+           "Angular.js"
+         ]
+         var info = {content:[
+           {
+             title: "International School Sports Federation",
+             image: "",
+             description: "Worked closely with project manager using wordpress cms with custom plugins requiring added functionality and various logistic optimization to restore and create various optimal plugin usage.",
+             technologies: [2,0,1,4,3]
+           },
+           {
+             title: "Naval Postgraduate School - Monterey",
+             image: "",
+             description: "Assisted in developing several plugins for the CodeIgniter Framework and optimized older code with updated javascript and jquery functions which were organized and optimized for both desktop and mobile platforms.",
+             technologies: [5,0,1,4,3]
+           },
+           {
+             title: "Superior Global Marketing (Divine Marketing)",
+             image: "",
+             description: "Worked closely with the CEO to help create better options for lead generation for numerous landing pages which required the usage of both Node.js as well as custom PHP and HTML coding. There were also requirements that resulted in the usage of Wordpress and various custom plugins that were used to optimize User Experience through Interface optimization (UX/UI)",
+             technologies: [2,8,7,0,1,4,3]
+           }
+         ]}
+         var projects = document.getElementById("projects");
+         
+         for(a in info.content){
+           var content_holder = document.createElement("div");
+           content_holder.className = "project-info-holder";
+           var content = info.content[a]
+           var proof_info = "<h3>"+content.title+"</h3><div class='description'>"+content.description+"</div>";
+           var technologies = document.createElement("div");
+           technologies.className = "technologies";
+           for(i in content.technologies){
+            technologies.innerHTML += technology[content.technologies[i]];
+            if(i < content.technologies.length-1){
+            	technologies.innerHTML += ", ";
+            }
+           }
+           content_holder.innerHTML = proof_info;
+           content_holder.appendChild(technologies)
+           projects.appendChild(content_holder);
+         }
+    </script>
   </body>
 </html>
